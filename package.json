@@ -1,0 +1,28 @@
+{
+  "name": "grouptoken",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/app.js",
+    "build": "cd client && npm install && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Group-Token/grouptoken.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Group-Token/grouptoken/issues"
+  },
+  "homepage": "https://github.com/Group-Token/grouptoken#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "engines": {
+    "node": "17.8.0"
+  }
+}
