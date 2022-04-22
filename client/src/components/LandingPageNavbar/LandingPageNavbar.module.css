@@ -1,0 +1,10 @@
+.landingPageNavbar {
+  height: 50px;
+  width: 96vw;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}

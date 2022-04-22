@@ -1,0 +1,13 @@
+.walletButton {
+  font-size: .9rem;
+  font-weight: 800;
+  background-color: #7168E9;
+  color: #FFFFFF;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: none;
+}
+
+.walletButton:hover {
+  cursor: pointer;
+}
