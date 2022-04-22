@@ -1,0 +1,6 @@
+.landingPage {
+  background-color: #FFFFFF;
+  background-image: linear-gradient(to bottom right, #4C94F033, #7564E833, #8156E533, #9007F433, #D821C933);
+  width: 100vw;
+  height: 100vh;
+}
