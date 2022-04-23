@@ -1,11 +1,15 @@
 import React from 'react';
 import styles from './ConnectWalletButton.module.css';
+import { useDispatch } from 'react-redux';
+import { setKey } from '../../features/publicKey/publicKeySlice';
 
 const ConnectWalletButton = () => {
+  const dispatch = useDispatch();
+
   const connectWallet = () => {
     window.solana.connect().then(
-      (res) => {
-        console.log(res.publicKey.toBase58());
+      ({ publicKey }) => {
+        dispatch(setKey(publicKey.toBase58()));
       }
     );
   }
