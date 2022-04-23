@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React from 'react';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import styles from './LandingPage.module.css';
 import LandingPageSection from '../LandingPageSection';
