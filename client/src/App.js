@@ -29,7 +29,6 @@ function App() {
         }
       );
     } else {
-      window.open("https://phantom.app/", "_blank");
       setTimeout(() => {
         setLoading(false);
       }, 1000);
