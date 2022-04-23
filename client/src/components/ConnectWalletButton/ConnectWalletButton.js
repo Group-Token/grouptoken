@@ -7,11 +7,15 @@ const ConnectWalletButton = () => {
   const dispatch = useDispatch();
 
   const connectWallet = () => {
-    window.solana.connect().then(
-      ({ publicKey }) => {
-        dispatch(setKey(publicKey.toBase58()));
-      }
-    );
+    if("solana" in window) {
+      window.solana.connect().then(
+        ({ publicKey }) => {
+          dispatch(setKey(publicKey.toBase58()));
+        }
+      );
+    } else {
+      window.open("https://phantom.app/", "_blank");
+    }
   }
 
   return (
