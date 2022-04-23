@@ -3,7 +3,11 @@ import styles from './ConnectWalletButton.module.css';
 
 const ConnectWalletButton = () => {
   const connectWallet = () => {
-    console.log('Connect Wallet');
+    window.solana.connect().then(
+      (res) => {
+        console.log(res.publicKey.toBase58());
+      }
+    );
   }
 
   return (
