@@ -1,7 +1,7 @@
 ```bash
-docker build -t react-node-image .
+docker build -t grouptoken .
 ```
 
 ```bash
-docker run -it -p  8080:8080 --name grouptoken react-node-image   
+docker run -it -p  8080:8080 --name grouptoken grouptoken
 ```
