@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+
+model User {
+  id            BigInt        @id @default(autoincrement())
+  publicKey     String        @unique
+  username      String
+  imageURL      String
+
+  tokens        Token[]
+
+  created_at    DateTime      @default(now())
+  updated_at    DateTime      @updatedAt
+}
+
+model Group {
+  id            BigInt        @id @default(autoincrement())
+  name          String
+  imageURL      String
+  adminTokenId  BigInt
+
+  tokens        GroupToken[]
+  adminToken    Token         @relation(fields: [adminTokenId], references: [id])
+  
+  created_at    DateTime      @default(now())
+  updated_at    DateTime      @updatedAt
+}
+
+model Token {
+  id            BigInt        @id @default(autoincrement())
+  address       String        @unique
+  ownerAddress  String
+
+  groups        GroupToken[]
+  ownedGroup    Group?
+  owner         User          @relation(fields: [ownerAddress], references: [publicKey])
+
+  created_at    DateTime      @default(now())
+  updated_at    DateTime      @updatedAt
+}
+
+model GroupToken {
+  groupId       BigInt
+  tokenId       BigInt
+  group         Group         @relation(fields: [groupId], references: [id])
+  token         Token         @relation(fields: [tokenId], references: [id])
+  assignedAt    DateTime      @default(now())
+
+  @@id([groupId, tokenId])
+}
