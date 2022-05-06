@@ -1,3 +1,5 @@
+![Group Token](./client/public/assets/logo.svg)
+
 ```bash
 docker build -t grouptoken .
 ```
