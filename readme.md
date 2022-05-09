@@ -1,9 +1,13 @@
 ![Group Token](./client/public/assets/logo.svg)
 
-```bash
-docker build -t grouptoken .
-```
+## Production
 
 ```bash
-docker run -it -p  8080:8080 grouptoken
+docker-compose up
+```
+
+## Development
+
+```bash
+npm run dev
 ```
