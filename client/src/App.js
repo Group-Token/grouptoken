@@ -7,6 +7,7 @@ import { setKey } from './features/publicKey/publicKeySlice';
 import { setAccount } from './features/account/accountSlice';
 import LoadingPage from './components/LoadingPage/LoadingPage';
 import Dashboard from './components/Dashboard';
+import DashboardNavbar from './components/DashboardNavbar';
 
 function App() {
   const publicKey = useSelector(state => state.publicKey.value);
@@ -14,41 +15,50 @@ function App() {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if ("solana" in window && publicKey == null) {
-      window.solana.connect({ onlyIfTrusted: true }).then(
-        ({ publicKey }) => {
+  const getPublicKeyFromWindowIfTrusted = () => {
+    console.log('Getting Public Key');
+    window.solana.connect({ onlyIfTrusted: true }).then(
+      (publicKey) => {
+        if (publicKey) {
           dispatch(setKey(publicKey.toBase58()));
         }
-      ).catch(
-        (err) => {
-          console.log(err);
-          setTimeout(() => {
-            setLoading(false);
-          }, 1000);
-        }
-      );
-    } else {
-      setTimeout(() => {
         setLoading(false);
-      }, 1000);
-    }
-  });
+      }
+    ).catch(
+      (err) => {
+        console.log(err);
+        setLoading(false);
+      }
+    );
+  }
+
+  const fetchAndSetAccount = async () => {
+    console.log('Fetching Account For ' + publicKey.payload);
+    fetch(`/api/v1/users/${publicKey.payload}`).then(response => response.json())
+    .then(
+      (data) => {
+        console.log(data);
+        dispatch(setAccount(data));
+        setLoading(false);
+      }
+    ).catch(
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
 
   useEffect(() => {
-    if (publicKey != null) {
-      fetch(`/api/v1/users/${publicKey.payload}`)
-      .then(response => response.json())
-      .then((data) => {
-        dispatch(setAccount(data));
-        console.log(data);
-        setTimeout(() => {
-          setLoading(false);
-        }, 1000);
-      })
-      .catch(err => console.log(err));
+    if (publicKey == null && 'solana' in window) {
+      setLoading(true);
+      getPublicKeyFromWindowIfTrusted();
+    } else if (publicKey != null && account == null ) {
+      setLoading(true);
+      fetchAndSetAccount();
+    } else {
+      setLoading(false);
     }
-  }, [publicKey]);
+  }, [publicKey])
 
   return (
     <div className="App">
@@ -56,9 +66,21 @@ function App() {
         loading ? (
           <LoadingPage />
         ) : (
-          <Routes>
-            <Route path="/" element={account == null ? <LandingPage/> : <Dashboard/>} />
-          </Routes>
+          <>
+            {
+              account == null ?
+              <Routes>
+                <Route path='/' element={<LandingPage/>} />
+              </Routes>
+              :
+              <>
+                <DashboardNavbar />
+                <Routes>
+                  <Route path='/' element={<Dashboard/>} />
+                </Routes>
+              </>
+            }
+          </>
         )
       }
     </div>
