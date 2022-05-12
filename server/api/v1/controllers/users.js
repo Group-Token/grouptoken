@@ -78,7 +78,7 @@ module.exports = function (app, prisma) {
   }
 
   app.get('/api/v1/users/:publicKey', async (req, res) => {
-    const user = await prisma.User.findUnique({
+    let user = await prisma.User.findUnique({
       where: {
         publicKey: req.params.publicKey,
       }
