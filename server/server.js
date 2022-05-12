@@ -21,6 +21,7 @@ app.get("/api", (req, res) => {
 });
 
 require('./api/v1/controllers/users')(app, prisma);
+require('./api/v1/controllers/groups')(app, prisma);
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));

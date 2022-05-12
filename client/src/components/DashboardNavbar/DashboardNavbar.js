@@ -12,7 +12,7 @@ const DashboardNavbar = () => {
         <img src='/assets/logo-alt.svg' alt='Group Token Logo' height='40px'/>
       </Link>
       <div className={styles.navlinks}>
-        <Link className={styles.navlink} to='/'>DASHBOARD</Link>
+        <Link className={styles.navlink} to='/'>TOKENS</Link>
         <Link className={styles.navlink} to='/groups'>GROUPS</Link>
         <Link to='/account'>
           <img className={styles.avatar} src={account.payload.imageURL} alt={account.payload.username} height='40px'/>

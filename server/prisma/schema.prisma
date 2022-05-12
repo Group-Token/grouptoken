@@ -23,6 +23,7 @@ model Group {
   id            BigInt        @id @default(autoincrement())
   name          String
   imageURL      String
+  description   String
   ownerId       BigInt
 
   tokens        GroupToken[]

@@ -53,6 +53,30 @@ module.exports = function (app, prisma) {
     return nft;
   }
 
+  const getGroups = async (tokens) => {
+    let groups = [];
+    for (token of tokens) {
+      const thisToken = await prisma.Token.findUnique({
+        where: {
+          address: token.address,
+        },
+        include: {
+          groups: {
+            include: {
+              group: true,
+            },
+          },
+        }
+      });
+      if (thisToken) {
+        for (group of thisToken.groups) {
+          groups.push(group.group);
+        }
+      }
+    }
+    return groups;
+  }
+
   app.get('/api/v1/users/:publicKey', async (req, res) => {
     const user = await prisma.User.findUnique({
       where: {
@@ -63,7 +87,7 @@ module.exports = function (app, prisma) {
       user = await createUser(req.params.publicKey);
     }
     user.tokens = await getTokens(req.params.publicKey);
-
+    user.groups = await getGroups(user.tokens);
     res.json(user);
   });
 }
