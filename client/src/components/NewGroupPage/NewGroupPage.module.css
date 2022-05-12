@@ -1,0 +1,100 @@
+.newGroupPage {
+  width: 100%;
+  min-height: 90vh;
+  background-color: #202020;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 1rem;
+}
+
+.section {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.form {
+  width: 95%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+}
+
+.groupInput {
+  padding: 10px 0px;
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  background-color: transparent;
+  border: 2px solid #7168E9;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.groupTextarea {
+  padding: 10px 0px;
+  width: 100%;
+  max-width: 400px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  background-color: transparent;
+  border: 2px solid #7168E9;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.addTokenButton {
+  padding: 10px 0px;
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  background-color: transparent;
+  border: 2px solid #7168E9;
+  border-radius: 10px;
+  text-align: center;
+  margin: 0;
+}
+
+.addTokenButton:hover {
+  cursor: pointer;
+  background-color: #7168E9;
+}
+
+.label {
+  margin: 0px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.groupSubmit {
+  padding: 10px 0px;
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  background-color: #7168E9;
+  border: 2px solid #7168E9;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.groupSubmit:hover {
+  cursor: pointer;
+  background-color: #8155E5;
+}

@@ -1,0 +1,22 @@
+.token {
+  width: 100%;
+  height: 415px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFFFFF;
+  background-image: linear-gradient(to bottom right, #4C94F033, #7564E833, #8156E533, #9007F433, #D821C933);
+  border-radius: 10px;
+}
+
+.tokenImage {
+  width: 100%;
+  min-height: 300px;
+  object-fit: cover;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.tokenName {
+  color: #7168E9;
+}

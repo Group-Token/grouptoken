@@ -1,4 +1,4 @@
-.dashboard {
+.groupPage {
   width: 100%;
   min-height: 90vh;
   background-color: #202020;
@@ -8,17 +8,37 @@
   padding-bottom: 1rem;
 }
 
-.section {
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.groupImage {
+  width: 90%;
+  height: 30vh;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
-.sectionTitle {
-  font-size: 2rem;
+.groupInfo {
+  margin-top: 1rem;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #FFFFFF;
+  text-align: left;
+  gap: 1rem;
+}
+
+.groupName {
   font-weight: 600;
+  margin: 0px;
+}
+
+.groupDescription {
+  width: 100%;
+  font-size: 24px;
+  font-weight: lighter;
+  margin: 0px;
+}
+
+.tokensName {
   color: #FFFFFF;
 }
 
