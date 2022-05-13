@@ -1,4 +1,4 @@
-![Group Token](./client/public/assets/logo.svg)
+[![Group Token](./client/public/assets/logo.svg)](http://grouptoken.io)
 
 ## Production
 
