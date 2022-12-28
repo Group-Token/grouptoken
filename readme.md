@@ -1,17 +1,11 @@
 ![Group Token](./client/public/assets/logo.svg)
 
-## Production
-
-```bash
-docker-compose up
-```
-
 ## Development
 
 ```bash
-cd server
+docker build -t grouptoken:latest .
 ```
 
 ```bash
-npm run dev
+docker run grouptoken:latest -p 8080:8080
 ```

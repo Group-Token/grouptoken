@@ -6,7 +6,6 @@ const { PrismaClient } = require('@prisma/client');
 const bodyParser = require('body-parser');
 
 const PORT = process.env.PORT || 8080;
-const HOST = '0.0.0.0';
 
 const app = express();
 const prisma = new PrismaClient();
@@ -27,6 +26,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
 
-app.listen(PORT, HOST, () => {
+app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);
 });

@@ -9,6 +9,8 @@ COPY --from=ui-build /usr/src/app/client/build ./client/build
 COPY server/ ./server/
 RUN cd server && npm install
 
+RUN npx prisma generate
+
 EXPOSE 8080
 
 CMD ["node", "./server/server.js"]
